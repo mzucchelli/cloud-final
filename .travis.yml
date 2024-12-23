@@ -27,8 +27,8 @@ install:
 after_success:
   - docker image ls
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push -a mzucc/tracker-backend
-  - docker push -a mzucc/tracker-frontend
+  - docker push -a mzucc/tracker-backend:build-$TRAVIS_BUILD_NUMBER
+  - docker push -a mzucc/tracker-frontend:build-$TRAVIS_BUILD_NUMBER
 
 
 
