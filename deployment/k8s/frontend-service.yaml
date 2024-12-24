@@ -11,4 +11,4 @@ spec:
     targetPort: 5173
   selector:
     service: frontend
-  type: LoadBalancer    
+  type: NodePort    
