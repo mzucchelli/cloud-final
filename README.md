@@ -36,7 +36,7 @@ How to run the application:
         1. Only replace the values where specified
         2. The Postgres user, password, and DB name will be generated
            for your local environment, so when running locally, you don't
-           have to know them ahead of time, you decide what they will be now
+           have to know them ahead of time, you decide what they will be now.
     3. In the two yaml files, replace mzucc with your own DockerHub name
     4. Build your containers
        # docker-compose -f docker-compose-build.yaml build
@@ -55,6 +55,8 @@ Copy env-configmap.yaml.template to env-configmap.yaml. Copy env-secret.yaml.tem
 eksctl create cluster -f cluster-setup/cluster-config.yaml
 Enter values in env-configmap.yaml for AWS_REGION, AWS_COGNITO_USERPOOLID, and AWS_COGNITO_CLIENT_ID
 Create a postgres database in RDS with self managed credentials. Make sure your EKS cluster can communicate with it. Update your env-configmap and env-secret yaml files with the information to accessing your Postgres database
+The database won't be created automatically like it is in docker-compose, so install the postgres cli tools and create one with:
+# createdb -h <POSTGRES_HOST> -U <POSTGRES_USERNAME> -W <POSTGRES_DB>
 kubectl apply -f ingressClass.yaml
 kubectl apply -f backend-ingress.yaml
 kubectl apply -f frontend-ingress.yaml
@@ -64,7 +66,7 @@ Update the API_URL and URL environment variables in env-configmap with these dom
 In TravisCI, create the following environment variables with the values you entered in your env-configmap: API_URL, AWS_COGNITO_CLIENTID, AWS_COGNITO_USERPOOLid, AWS_REGION
 In TravisCI, create a DOCKER_USERNAME and DOCKER_PASSWORD environment variable with your dockerhub credentials
 Trigger your first build. The environment variables must be set in travis before the build because the frontend is a production build with the values baked in from the webpack
-When complete, update the image in your 2 deployment yaml's with the build number that just completed and was pushed to your dockerhub (it's in the tag). Also, replace mzucc with your dockerhub username
+When complete, update the image in your 2 deployment yaml's with the build number that just completed and was pushed to your dockerhub (it's in the tag). Update the number in this file with each build to ensure the most recent gets pulled. Could be useful to copy the file and put the version number in the file name and commmit, so you can easily deploy any version. Also, replace mzucc with your dockerhub username
 kubectl apply -f env-secret.yaml
 kubectl apply -f env-configmap.yaml
 kubectl apply -f backend-deployment.yaml

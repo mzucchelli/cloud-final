@@ -15,7 +15,7 @@ spec:
         service: backend
     spec:
       containers:
-      - image: mzucc/tracker-backend:build-31
+      - image: mzucc/tracker-backend:build-32
         name: backend
         imagePullPolicy: Always  
         resources:
