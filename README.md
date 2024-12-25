@@ -46,3 +46,14 @@ How to run the application:
     8. Test the application by creating, updating, and deleting a stock trade.
     9. Run the integration tests (view the README inside the tests directory)
 
+
+eksctl create cluster -f cluster-config.yaml
+kubectl apply -f ingressClass.yaml
+kubectl apply -f backend-ingress.yaml
+kubectl apply -f frontend-ingress.yaml
+kubectl apply -f env-secret.yaml
+kubectl apply -f env-configmap.yaml
+kubectl apply -f backend-deployment.yaml
+kubectl apply -f backend-service.yaml
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f frontend-service.yaml
