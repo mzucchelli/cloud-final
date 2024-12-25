@@ -3,11 +3,11 @@ kind: ConfigMap
 data:
   POSTGRES_DB: trackerdb
   POSTGRES_HOST: __INSERT__
-  AWS_REGION: us-east-1
+  AWS_REGION: __INSERT__
   AWS_COGNITO_USERPOOLID: __INSERT__
   AWS_COGNITO_CLIENTID: __INSERT__
-  API_URL: http://localhost:3000
-  URL: http://localhost:5173
+  API_URL: http://__INSERT_BACKEND_DOMAIN__:3000
+  URL: http://__INSERT_FRONTEND_DOMAIN__:5173
   TOKEN_USE: access
   TOKEN_EXPIRATION: "3600000"
 metadata:

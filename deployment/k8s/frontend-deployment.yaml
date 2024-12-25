@@ -16,7 +16,7 @@ spec:
         api: external        
     spec:
       containers:
-      - image: mzucc/tracker-frontend-prod
+      - image: mzucc/tracker-frontend-prod:build-31
         name: frontend
         imagePullPolicy: Always          
         ports:
