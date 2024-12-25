@@ -20,7 +20,13 @@ an AWS hosted Postgres server.
 The integration tests are in the tests directory. Please refer to the README there for running the tests
 after you have the application up and running.
 
-How to run the application:
+I am currently hosting the application at the URL below using AWS EKS. Feel free to create an account and try it:
+
+http://k8s-default-frontend-4ca52dc992-1689536412.us-east-1.elb.amazonaws.com:5173/
+
+
+
+How to run the application on your own:
 
 1. Set up AWS Cognito. The users created in cognito should sign in with email address and password. Access Tokens should be able to be granted.
    Create the settings accordingly.
@@ -48,7 +54,7 @@ How to run the application:
     8. Test the application by creating, updating, and deleting a stock trade.
     9. Run the integration tests (view the README inside the tests directory)
 
-Connect your repository to TravisCI for builds. Create environment variables within Travis CI
+Fork the repository, and connect your repository to TravisCI for builds. Create environment variables within Travis CI
 Replace mzucc in the .travis.yml file with your dockerhub username
 cd deployment/k8s
 Copy env-configmap.yaml.template to env-configmap.yaml. Copy env-secret.yaml.template to env-secret.yaml.  Use this new files for your personal deploys
@@ -73,3 +79,5 @@ kubectl apply -f backend-deployment.yaml
 kubectl apply -f backend-service.yaml
 kubectl apply -f frontend-deployment.yaml
 kubectl apply -f frontend-service.yaml
+kube get pods
+As soon as all pods are running, visit your application (URL wil be the same as the URL environment variable in your config map)
