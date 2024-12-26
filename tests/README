@@ -1,6 +1,6 @@
 We have integration tests for testing the API using postman.
 
-1. Import the accompanying Tracker.postman_collection.json into postman
+1. Import the accompanying Tracker.postman_collection.json into Postman
 2. Since the API is protected through a JWT access token, we'll need to set 
    an the acccessToken variable.
      1. Click the 3 dots to the right of "Tracker" and select edit.
@@ -15,7 +15,8 @@ We have integration tests for testing the API using postman.
    through docker-compose, copy the Initial Value to the Current value.  Otherwise, use
    the appropriate URL for your environment.
 4. Ignore the tradeId variable, this will be set by the tests.
-5. Time to run the tests.
+5. Click the save button.
+6. Time to run the tests.
     1. Start with Create Trade, and click Send. See the test results in the Test Results tab below.
        This will set the tradeId variable with the newly inserted ID, which the Update Trade, and Delete Trade
        will use.
@@ -24,4 +25,4 @@ We have integration tests for testing the API using postman.
     4. Run the Get Trades API call again to see the changed record.
     5. Run the Delete Trade API call and view the test results.
     6. Run the Get Trades API call again to see that the created record has been deleted.
-6. All done!
+7. All done!
