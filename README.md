@@ -24,6 +24,9 @@ I am currently hosting the application at the URL below using AWS EKS. Feel free
 
 http://k8s-default-frontend-4ca52dc992-1689536412.us-east-1.elb.amazonaws.com:5173/
 
+See the screenshots directory for screenshots of the deployed application, successful build, dockerhub, and 
+passing postman tests.
+
 
 ----------------------------------------------------
 
