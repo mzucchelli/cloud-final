@@ -10,16 +10,16 @@ jobs:
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
-        parameters:
-    cluster-name:
-      description: |
-        Name of the EKS cluster
+    parameters:
+      cluster-name:
+        description: |
+          Name of the EKS cluster
+          type: string
+      aws-region:
+        description: |
+          AWS region
         type: string
-    aws-region:
-      description: |
-        AWS region
-      type: string
-      default: ""
+        default: ""
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
