@@ -14,8 +14,8 @@ jobs:
     cluster-name:
       description: |
         Name of the EKS cluster
-      type: string
-      aws-region:
+        type: string
+    aws-region:
       description: |
         AWS region
       type: string
