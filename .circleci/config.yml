@@ -31,6 +31,11 @@ jobs:
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
             docker push $DOCKERHUB_USERNAME/tracker-frontend-prod:ci-build-$CIRCLE_BUILD_NUM
             docker push $DOCKERHUB_USERNAME/tracker-backend:ci-build-$CIRCLE_BUILD_NUM
+      - run:
+          name: Deploy
+          command: |
+            export BUILD_NUM=$CIRCLE_BUILD_NUM
+            ./deployment/k8s/deploy.sh
 workflows:
   build:
     jobs:
