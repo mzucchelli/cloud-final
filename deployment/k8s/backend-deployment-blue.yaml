@@ -16,7 +16,7 @@ spec:
         color: blue
     spec:
       containers:
-      - image: mzucc/tracker-backend:build-37
+      - image: mzucc/tracker-backend:ci-build-24
         name: backend
         imagePullPolicy: Always  
         resources:

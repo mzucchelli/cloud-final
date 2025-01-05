@@ -10,6 +10,7 @@ spec:
     port: 3000
     targetPort: 3000
   selector:
-    service: backend-blue
+    service: backend
+    color: blue
   type: NodePort
   
