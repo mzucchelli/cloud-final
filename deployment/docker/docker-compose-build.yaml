@@ -3,6 +3,8 @@ services:
   tracker-backend:
     build:
       context: ../../backend
+      args:
+        BUILD_NUM: $BUILD_NUM 
     image: mzucc/tracker-backend
   tracker-frontend:
     build:

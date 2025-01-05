@@ -1,5 +1,8 @@
 FROM node:latest
 
+ARG BUILD_NUM
+ENV BUILD_NUM=${BUILD_NUM}
+
 WORKDIR /app
 
 COPY . .
