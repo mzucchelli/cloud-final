@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  kubernetes: circleci/kubernetes@x.y.z
+  kubernetes: circleci/kubernetes@1.28.2
 jobs:
   build-images:
     working_directory: ~/app

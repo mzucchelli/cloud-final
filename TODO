@@ -9,4 +9,5 @@ Temporarily unavailable while patching ingress, why?
 Include smoke test in blue/green deployment
 A different pipeline or workflow for k8s in continuous deployment?
     Triggered after main image build, or triggered from dockerhub push?
-
+    Should I use CircleCI orbs?
+    
