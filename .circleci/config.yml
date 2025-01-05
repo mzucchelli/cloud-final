@@ -16,11 +16,17 @@ jobs:
           Name of the EKS cluster
         type: string
         default: "cloud-final.us-east-1.eksctl.io"
+      aws-region:
+        description: |
+          AWS region
+        type: string
+        default: ""
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: << parameters.cluster-name >>
           install-kubectl: true
+          aws-region: << parameters.aws-region >>
       - setup_remote_docker:
           docker_layer_caching: true
       - run:
