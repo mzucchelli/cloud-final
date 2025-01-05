@@ -15,12 +15,12 @@ jobs:
         description: |
           Name of the EKS cluster
         type: string
-        default: "cloud-final"
+        default: $EKS_CLUSTER_NAME
       aws-region:
         description: |
           AWS region
         type: string
-        default: "us-east-1"
+        default: $AWS_DEFAULT_REGION
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
