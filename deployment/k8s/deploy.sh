@@ -8,7 +8,7 @@ then
     kubectl patch ingress backend --type merge --patch-file deployment/k8s/backend-ingress-patch-green.yaml
 else
     echo "Environment is Green. Switching to Blue"
-    kubectl set image deployment backend-green backend=mzucc/tracker-backend:ci-build-$BUILD_NUM
+    kubectl set image deployment backend-blue backend=mzucc/tracker-backend:ci-build-$BUILD_NUM
     kubectl rollout status deployment backend-blue
     kubectl patch ingress backend --type merge --patch-file deployment/k8s/backend-ingress-patch-blue.yaml
 fi
