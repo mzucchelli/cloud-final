@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  kubernetes: circleci/kubernetes@x.y.z
 jobs:
   build-images:
     working_directory: ~/app
@@ -9,8 +11,13 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - kubernetes/install-kubectl
       - setup_remote_docker:
           docker_layer_caching: true
+      - run:
+          name: Get Kubectl Version
+          command: |
+            kubectl version
       - run:
           name: Build Docker Images
           command: |

@@ -5,3 +5,8 @@ Better handling of exceptions from sequelize
 Remove all unnecessary code from grid and clean up
 Refine the FullFeaturedCRUDGrid so it's easier to implement in the future
 Complete postman end to end testing
+Temporarily unavailable while patching ingress, why?
+Include smoke test in blue/green deployment
+A different pipeline or workflow for k8s in continuous deployment?
+    Triggered after main image build, or triggered from dockerhub push?
+
