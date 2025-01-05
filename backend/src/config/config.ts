@@ -9,7 +9,8 @@ export const config = {
       "cognito_user_pool_id": process.env.COGNITO_USER_POOL_ID,
       "token_use": process.env.TOKEN_USE,
       "token_expiration": process.env.TOKEN_EXPIRATION,
-      "url": process.env.URL    
+      "url": process.env.URL,
+      "build_num": process.env.BUILD_NUM ?? "dev"    
     }
   }
   

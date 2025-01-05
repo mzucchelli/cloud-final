@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    service: backend
+  name: backend-green
+spec:
+  selector:
+    matchLabels:
+      service: backend
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        service: backend
+        color: green
+    spec:
+      containers:
+      - image: mzucc/tracker-backend:build-32
+        name: backend
+        imagePullPolicy: Always  
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"                  
+        env:
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: POSTGRES_DB
+        - name: POSTGRES_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: POSTGRES_HOST
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_USERNAME  
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: POSTGRES_PASSWORD  
+        - name: URL
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: URL
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_REGION
+        - name: COGNITO_USER_POOL_ID
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_COGNITO_USERPOOLID
+        - name: AWS_COGNITO_CLIENTID
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_COGNITO_CLIENTID
+        - name: TOKEN_USE
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: TOKEN_USE
+        - name: TOKEN_EXPIRATION
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: TOKEN_EXPIRATION      
+      restartPolicy: Always
+     

@@ -33,6 +33,11 @@ const port = 3000;
         }
     }
 
+    app.use((req, res, next) => {
+        res.set('API-Version', c.build_num);
+        next();
+    });
+
     //app.use(cors(corsOptions));
     app.use(cors());
     app.use(requireAuth);
