@@ -11,6 +11,8 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - kubernetes/install-kubeconfig:
+          kubeconfig: KUBECONFIG_DATA
       - kubernetes/install-kubectl
       - setup_remote_docker:
           docker_layer_caching: true

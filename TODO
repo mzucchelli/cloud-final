@@ -10,4 +10,6 @@ Include smoke test in blue/green deployment
 A different pipeline or workflow for k8s in continuous deployment?
     Triggered after main image build, or triggered from dockerhub push?
     Should I use CircleCI orbs?
-    
+
+Add this to docs for setting up kubeconfig in circle
+kubectl config view --raw --minify --output=yaml | base64 > b64
