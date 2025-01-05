@@ -10,10 +10,20 @@ jobs:
         auth:
           username: $DOCKERHUB_USERNAME
           password: $DOCKERHUB_PASSWORD
+        parameters:
+    cluster-name:
+      description: |
+        Name of the EKS cluster
+      type: string
+      aws-region:
+      description: |
+        AWS region
+      type: string
+      default: ""
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
-          cluster-name: $EKS_CLUSTER_NAME
+          cluster-name: << parameters.cluster-name >>
           install-kubectl: true
       - setup_remote_docker:
           docker_layer_caching: true
