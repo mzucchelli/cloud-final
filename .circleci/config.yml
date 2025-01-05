@@ -15,6 +15,7 @@ jobs:
         description: |
           Name of the EKS cluster
         type: string
+        default: "cloud-final.us-east-1.eksctl.io"
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
