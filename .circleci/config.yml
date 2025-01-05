@@ -15,11 +15,6 @@ jobs:
         description: |
           Name of the EKS cluster
           type: string
-      aws-region:
-        description: |
-          AWS region
-        type: string
-        default: ""
     steps:
       - checkout
       - aws-eks/update-kubeconfig-with-authenticator:
