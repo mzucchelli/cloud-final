@@ -13,3 +13,4 @@ A different pipeline or workflow for k8s in continuous deployment?
 
 Add this to docs for setting up kubeconfig in circle
 kubectl config view --raw --minify --output=yaml | base64 > b64
+10 or so second downtime when patching service or ingress from blue to green or back

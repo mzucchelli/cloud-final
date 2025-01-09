@@ -24,8 +24,10 @@ I am currently hosting the application at the URL below using AWS EKS. Feel free
 
 http://k8s-default-frontend-4ca52dc992-1689536412.us-east-1.elb.amazonaws.com:5173/
 
-See the screenshots directory for screenshots of the deployed application, successful build, dockerhub, and 
-passing postman tests.
+See the screenshots directory for screenshots of the deployed application, successful build - CI and CD showing the
+blue/green deployment, cloudwatch monitoring, kubernetes running pods, deployments, services, ingress, dockerhub, and 
+passing postman tests. I was originally using TravisCI for the CI, but now I am using CircleCI for the CI/CD
+because Travis began to charge me and CircleCI is free.  The config for that is .circleci/config.yml
 
 
 ----------------------------------------------------
@@ -62,7 +64,8 @@ How to run the application on your own:
     8. Test the application by creating, updating, and deleting a stock trade.
     9. Run the integration tests (view the README inside the tests directory)
 
-4. To deploy to kubernetes on AWS (for production)
+4. To deploy to kubernetes on AWS (for production). Initially, it must be deployed manually. Once the application is set up,
+   the continuous deployment will take over and perform a blue/green deployment - implemented in deployment/k8s/deploy.sh
    1. Set up the AWS CLI (if you are using AWS)
    2. Fork the repository, and connect your repository to TravisCI for builds. Create environment variables within Travis CI
    3. Replace mzucc in the .travis.yml file with your dockerhub username
