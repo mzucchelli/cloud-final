@@ -4,7 +4,7 @@ echo "Deploying Build " $BUILD_NUM
 
 COLOR=$(kubectl get ing backend-alb-blue-green -o jsonpath='{.metadata.labels.color}')
 
-if [ "$COLOR" == "blue"] ;
+if [ "$COLOR" = "blue" ];
 then
     echo "Backend environment is Blue. Switching to Green"
     kubectl set image deployment backend-green backend=mzucc/tracker-backend:ci-build-$BUILD_NUM
@@ -21,7 +21,7 @@ fi
 
 COLOR=$(kubectl get ing frontend-alb-blue-green -o jsonpath='{.metadata.labels.color}')
 
-if [ "$COLOR" == "blue"] ;
+if [ "$COLOR" = "blue" ];
 then
     echo "Frontend environment is Blue. Switching to Green"
     kubectl set image deployment frontend-green frontend=mzucc/tracker-frontend-prod:ci-build-$BUILD_NUM
