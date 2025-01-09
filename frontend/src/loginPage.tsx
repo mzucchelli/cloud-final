@@ -4,6 +4,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signIn, signUp } from './authService';
+import config from "./config";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -91,6 +92,7 @@ const LoginPage = () => {
       <button onClick={() => setIsSignUp(!isSignUp)}>
         {isSignUp ? 'Already have an account? Sign In' : 'Need an account? Sign Up'}
       </button>
+      <div>Build: {config.buildNum}</div>
     </div>
   );
 };

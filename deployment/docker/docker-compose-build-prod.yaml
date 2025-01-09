@@ -4,7 +4,7 @@ services:
     build:
       context: ../../backend
       args:
-        BUILD_NUM: $BUILD_NUM 
+        BUILD_NUM: $BUILD_NUM
     image: mzucc/tracker-backend
   tracker-frontend:
     build:
@@ -15,6 +15,7 @@ services:
         VITE_AWS_COGNITO_USERPOOLID: $AWS_COGNITO_USERPOOLID
         VITE_AWS_COGNITO_CLIENTID: $AWS_COGNITO_CLIENTID
         VITE_API_URL: $API_URL
+        VITE_BUILD_NUM: $BUILD_NUM
     image: mzucc/tracker-frontend-prod
 
 

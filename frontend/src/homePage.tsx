@@ -3,6 +3,7 @@
 
 import { useNavigate } from 'react-router-dom';
 import FullFeaturedCrudGrid from './CrudGrid';
+import config from "./config";
 
 /*eslint-disable*/
 function parseJwt (token) {
@@ -43,6 +44,7 @@ const HomePage = () => {
         <div>
           <button onClick={handleLogout}>Logout</button>
         </div>
+        <div>Build: {config.buildNum}</div>
       </div>
   );
 };

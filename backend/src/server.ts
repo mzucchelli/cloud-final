@@ -34,7 +34,7 @@ const port = 3000;
     }
 
     app.use((req, res, next) => {
-        res.set('API-Version', c.build_num);
+        res.set('Build-Num', c.build_num);
         next();
     });
 

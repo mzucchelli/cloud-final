@@ -3,7 +3,7 @@
 
 import { CognitoIdentityProviderClient, InitiateAuthCommand, SignUpCommand, ConfirmSignUpCommand, InitiateAuthCommandInput } from "@aws-sdk/client-cognito-identity-provider";
 import config from "./config";
-console.log(import.meta.env);
+
 export const cognitoClient = new CognitoIdentityProviderClient({
   region: config.region,
 });
