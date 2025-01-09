@@ -1,5 +1,0 @@
-spec:
-  selector:
-    service: backend
-    color: green
-  
